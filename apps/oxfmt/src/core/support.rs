@@ -188,6 +188,10 @@ fn get_external_parser_name(file_name: &str, extension: Option<&str>) -> Option<
     if extension == Some("vue") {
         return Some("vue");
     }
+    // MPX (WeChat Mini Program) uses similar structure to Vue SFC
+    if extension == Some("mpx") {
+        return Some("vue");
+    }
     if extension == Some("mjml") {
         return Some("mjml");
     }
@@ -384,6 +388,8 @@ mod tests {
             ("email.mjml", Some("mjml")),
             // Vue
             ("App.vue", Some("vue")),
+            // MPX (WeChat Mini Program)
+            ("App.mpx", Some("vue")),
             // CSS
             ("styles.css", Some("css")),
             ("app.wxss", Some("css")),

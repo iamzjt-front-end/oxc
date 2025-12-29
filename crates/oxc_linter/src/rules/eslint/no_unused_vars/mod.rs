@@ -223,9 +223,9 @@ impl Rule for NoUnusedVars {
         // 2. vue/svelte/astro scripts declare variables that get used in the template, which
         //    we can't detect
         !ctx.source_type().is_typescript_definition()
-            && !ctx
-                .file_extension()
-                .is_some_and(|ext| ext == "vue" || ext == "svelte" || ext == "astro")
+            && !ctx.file_extension().is_some_and(|ext| {
+                ext == "vue" || ext == "svelte" || ext == "astro" || ext == "mpx"
+            })
     }
 }
 

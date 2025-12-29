@@ -973,6 +973,30 @@ mod test {
     }
 
     #[test]
+    fn lint_mpx_file() {
+        let args = &["fixtures/mpx/debugger.mpx"];
+        Tester::new().test_and_snapshot(args);
+    }
+
+    #[test]
+    fn lint_empty_mpx_file() {
+        let args = &["fixtures/mpx/empty.mpx"];
+        Tester::new().test_and_snapshot(args);
+    }
+
+    #[test]
+    fn lint_invalid_mpx_file() {
+        let args = &["fixtures/mpx/invalid.mpx"];
+        Tester::new().test_and_snapshot(args);
+    }
+
+    #[test]
+    fn lint_mpx_typescript_file() {
+        let args = &["fixtures/mpx/typescript.mpx"];
+        Tester::new().test_and_snapshot(args);
+    }
+
+    #[test]
     fn test_tsconfig_option() {
         // passed
         Tester::new().with_cwd("fixtures".into()).test(&["--tsconfig", "tsconfig/tsconfig.json"]);
@@ -1021,6 +1045,11 @@ mod test {
             "fixtures/fix_argument/fix.vue",
             "<script>debugger;</script>\n<script>debugger;</script>\n",
             "<script></script>\n<script></script>\n",
+        );
+        Tester::test_fix(
+            "fixtures/fix_argument/fix.mpx",
+            "<script>debugger;</script>\n",
+            "<script></script>\n",
         );
     }
 

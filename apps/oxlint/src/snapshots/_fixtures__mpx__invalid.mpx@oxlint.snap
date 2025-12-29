@@ -1,0 +1,23 @@
+---
+source: apps/oxlint/src/tester.rs
+assertion_line: 134
+---
+########## 
+arguments: fixtures/mpx/invalid.mpx
+working directory: 
+----------
+
+  x Missing initializer in const declaration
+   ,-[fixtures/mpx/invalid.mpx:3:7]
+ 2 | // This is a line of very very normal code comment, nothing special here.
+ 3 | const message
+   :       ^^^^^^^
+ 4 | </script>
+   `----
+  help: Add an initializer (e.g. ` = undefined`) here
+
+Found 0 warnings and 1 error.
+Finished in <variable>ms on 1 file with 90 rules using 1 threads.
+----------
+CLI result: LintFoundErrors
+----------

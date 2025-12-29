@@ -1,0 +1,7 @@
+<template>
+    <view>Hello World</view>
+</template>
+
+<script>
+    debugger
+</script>

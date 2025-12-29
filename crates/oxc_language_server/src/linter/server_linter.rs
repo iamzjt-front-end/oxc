@@ -1015,6 +1015,7 @@ mod test {
             "astro/debugger.astro",
             "vue/debugger.vue",
             "svelte/debugger.svelte",
+            "mpx/debugger.mpx",
             "nextjs/[[..rest]]/debugger.ts",
         ]);
     }

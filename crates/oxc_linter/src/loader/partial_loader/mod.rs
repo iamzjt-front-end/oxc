@@ -4,9 +4,11 @@ use oxc_span::VALID_EXTENSIONS;
 use crate::loader::JavaScriptSource;
 
 mod astro;
+mod mpx;
 mod svelte;
 mod vue;
 pub use astro::AstroPartialLoader;
+pub use mpx::MpxPartialLoader;
 pub use svelte::SveltePartialLoader;
 pub use vue::VuePartialLoader;
 
@@ -17,7 +19,7 @@ const COMMENT_END: &str = "-->";
 
 /// File extensions that can contain JS/TS code in certain parts, such as in `<script>` tags, and can
 /// be loaded using the [`PartialLoader`].
-pub const LINT_PARTIAL_LOADER_EXTENSIONS: &[&str] = &["vue", "astro", "svelte"];
+pub const LINT_PARTIAL_LOADER_EXTENSIONS: &[&str] = &["vue", "astro", "svelte", "mpx"];
 
 /// All valid JavaScript/TypeScript extensions, plus additional framework files that
 /// contain JavaScript/TypeScript code in them (e.g., Vue, Astro, Svelte, etc.).
@@ -34,6 +36,7 @@ impl PartialLoader {
             "vue" => Some(VuePartialLoader::new(source_text).parse()),
             "astro" => Some(AstroPartialLoader::new(source_text).parse()),
             "svelte" => Some(SveltePartialLoader::new(source_text).parse()),
+            "mpx" => Some(MpxPartialLoader::new(source_text).parse()),
             _ => None,
         }
     }

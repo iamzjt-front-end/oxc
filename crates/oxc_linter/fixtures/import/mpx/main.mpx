@@ -1,0 +1,9 @@
+<script lang="ts">
+import * as mpx from '@mpxjs/core'
+</script>
+
+<script type="application/json">
+{
+    "usingComponents": {}
+}
+</script>

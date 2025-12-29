@@ -1,0 +1,10 @@
+<template>
+    <view>Hello World</view>
+</template>
+
+<script>debugger;</script>
+
+<script lang="ts">
+    const foo: string = "test";
+    debugger;
+</script>

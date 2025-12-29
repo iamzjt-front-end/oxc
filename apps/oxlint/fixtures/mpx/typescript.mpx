@@ -1,0 +1,8 @@
+<template>
+    <view>TypeScript Test</view>
+</template>
+
+<script lang="ts">
+    const foo: string = "hello";
+    debugger;
+</script>
